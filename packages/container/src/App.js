@@ -8,7 +8,7 @@ import Progress from './components/Progress';
 
 const MarketingLazy = lazy(() => import('./components/MarketingApp'));
 const AuthLazy = lazy(() => import('./components/AuthApp'));
-const DashboardLazy = lazy(() => import('./components/Dashboard'))
+const DashboardLazy = lazy(() => import('./components/DashboardApp'))
 
 import { StylesProvider, createGenerateClassName } from '@material-ui/core';
 import { createBrowserHistory } from 'history';
