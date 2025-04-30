@@ -1,9 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
-import { createMemoryHistory, createBrowserHistory, initialPath } from 'history';
+import { createMemoryHistory, createBrowserHistory } from 'history';
 
-const mount = (element, { onNavigate, defaultHistory, initialPath }) => {
+const mount = (element, { onNavigate, defaultHistory, initialPath, onSignIn }) => {
   const history = defaultHistory || createMemoryHistory({
     initialEntries: [initialPath]
   });
@@ -13,7 +13,7 @@ const mount = (element, { onNavigate, defaultHistory, initialPath }) => {
   }
   
 
-  ReactDOM.render(<App history={history}/>, element);
+  ReactDOM.render(<App history={history} onSignIn={onSignIn} />, element);
 
   return {
     onParentNavigate({ pathname: nextPathName }) {
@@ -28,7 +28,7 @@ const mount = (element, { onNavigate, defaultHistory, initialPath }) => {
 
 // if we are in dev and in asiloation, mount with given root if
 if(process.env.NODE_ENV === 'development') {
-  const devRoot = document.querySelector('#_marketing-dev-root');
+  const devRoot = document.querySelector('#_au-dev-root');
 
   if(devRoot) {
     
